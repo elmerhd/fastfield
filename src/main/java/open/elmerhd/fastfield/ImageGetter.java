@@ -21,10 +21,17 @@ import org.jsoup.nodes.Document;
 @Stateless
 @Path("/image")
 public class ImageGetter {
-
+    /**
+     * Get the image from fastfield
+     * @param username the fastfield username
+     * @param password the fastfield password
+     * @param file the name of the file
+     * @return image/jpg if success else return application/json
+     * @throws Exception 
+     */
     @GET
-    @Produces({"image/jpg","application/json"})
-    public Response getImage(@QueryParam("username") String username, @QueryParam("password") String password, @QueryParam("file") String file) throws IOException, Exception {
+    @Produces( {"image/jpg", "application/json"} )
+    public Response getImage(@QueryParam("username") String username, @QueryParam("password") String password, @QueryParam("file") String file) throws Exception {
         Response.ResponseBuilder response = null;
         JSONObject jsonResponse = new JSONObject();
         if (username == null || username.isEmpty()) {
@@ -61,7 +68,11 @@ public class ImageGetter {
         }
         return response.build();
     }
-
+    /**
+     * Validate if body contains Email or Password is incorrect
+     * @param doc the document
+     * @return true if doesn't contains else false
+     */
     public boolean validCredentials(Document doc) {
         return !doc.body().toString().contains("Email or Password is incorrect");
     }
