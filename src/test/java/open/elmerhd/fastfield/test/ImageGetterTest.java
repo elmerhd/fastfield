@@ -41,7 +41,6 @@ public class ImageGetterTest extends JerseyTest {
     public void InvalidUsernameOrPasswordTest() {
         Response response = target("image/").queryParam("username", "elmerhd").queryParam("password", "mypassword").queryParam("file", "file.jpg").request().get(Response.class);
         Response.ResponseBuilder expectedResponse = Response.status(Response.Status.UNAUTHORIZED);
-        System.out.println(response.getStatus());
         Assert.assertTrue(expectedResponse.build().getStatus() == response.getStatus());
     }
 }
