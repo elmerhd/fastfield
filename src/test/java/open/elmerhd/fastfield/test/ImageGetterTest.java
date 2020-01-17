@@ -42,7 +42,7 @@ public class ImageGetterTest extends JerseyTest {
         Assert.assertTrue(expectedResponse.build().getStatus() == response.getStatus());
     }
     /**
-     * Test on Username
+     * Test on password
      * expected {@link javax.ws.rs.core.Response.Status} EXPECTATION_FAILED
      */
     @Test
@@ -52,7 +52,7 @@ public class ImageGetterTest extends JerseyTest {
         Assert.assertTrue(expectedResponse.build().getStatus() == response.getStatus());
     }
     /**
-     * Test on Username
+     * Test on invalid username and password
      * expected {@link javax.ws.rs.core.Response.Status} UNAUTHORIZED
      */
     @Test
