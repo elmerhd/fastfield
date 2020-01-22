@@ -22,32 +22,12 @@ public class ImageGetterTest extends JerseyTest {
         return new ResourceConfig(ImageGetter.class);
     }
     /**
-     * Test on Username
-     * expected {@link javax.ws.rs.core.Response.Status} EXPECTATION_FAILED
-     */
-    @Test
-    public void usernameTest() {
-        Response response = target("image/").queryParam("username", "").request().get(Response.class);
-        Response.ResponseBuilder expectedResponse = Response.status(Response.Status.EXPECTATION_FAILED);
-        Assert.assertTrue(expectedResponse.build().getStatus() == response.getStatus());
-    }
-    /**
-     * Test on Username
-     * expected {@link javax.ws.rs.core.Response.Status} EXPECTATION_FAILED
-     */
-    @Test
-    public void passwordTest() {
-        Response response = target("image/").queryParam("username", "").queryParam("password", "").request().get(Response.class);
-        Response.ResponseBuilder expectedResponse = Response.status(Response.Status.EXPECTATION_FAILED);
-        Assert.assertTrue(expectedResponse.build().getStatus() == response.getStatus());
-    }
-    /**
      * Test on password
      * expected {@link javax.ws.rs.core.Response.Status} EXPECTATION_FAILED
      */
     @Test
     public void fileTest() {
-        Response response = target("image/").queryParam("username", "").queryParam("password", "").queryParam("file", "").request().get(Response.class);
+        Response response = target("image/").queryParam("file", "").request().get(Response.class);
         Response.ResponseBuilder expectedResponse = Response.status(Response.Status.EXPECTATION_FAILED);
         Assert.assertTrue(expectedResponse.build().getStatus() == response.getStatus());
     }
@@ -57,7 +37,7 @@ public class ImageGetterTest extends JerseyTest {
      */
     @Test
     public void InvalidUsernameOrPasswordTest() {
-        Response response = target("image/").queryParam("username", "elmerhd").queryParam("password", "mypassword").queryParam("file", "file.jpg").request().get(Response.class);
+        Response response = target("image/").queryParam("file", "file.jpg").request().get(Response.class);
         Response.ResponseBuilder expectedResponse = Response.status(Response.Status.UNAUTHORIZED);
         Assert.assertTrue(expectedResponse.build().getStatus() == response.getStatus());
     }
