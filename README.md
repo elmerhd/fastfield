@@ -1,5 +1,6 @@
 # fastfield
 fastfield image grabber rest api
 
-run
+- install apache maven
+- git clone
 - mvn install
