@@ -31,14 +31,4 @@ public class ImageGetterTest extends JerseyTest {
         Response.ResponseBuilder expectedResponse = Response.status(Response.Status.EXPECTATION_FAILED);
         Assert.assertTrue(expectedResponse.build().getStatus() == response.getStatus());
     }
-    /**
-     * Test on invalid username and password
-     * expected {@link javax.ws.rs.core.Response.Status} UNAUTHORIZED
-     */
-    @Test
-    public void InvalidUsernameOrPasswordTest() {
-        Response response = target("image/").queryParam("file", "file.jpg").request().get(Response.class);
-        Response.ResponseBuilder expectedResponse = Response.status(Response.Status.UNAUTHORIZED);
-        Assert.assertTrue(expectedResponse.build().getStatus() == response.getStatus());
-    }
 }
