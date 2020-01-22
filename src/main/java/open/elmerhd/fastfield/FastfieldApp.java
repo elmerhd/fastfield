@@ -11,6 +11,10 @@ import javax.ws.rs.core.Application;
  */
 @ApplicationPath("api")
 public class FastfieldApp extends Application {
+    static {
+        System.setProperty("fastfield-username", "");
+        System.setProperty("fastfield-password", "");
+    }
     @Override
     public Set<Class<?>> getClasses() {
         Set<Class<?>> classes = new HashSet<>();
