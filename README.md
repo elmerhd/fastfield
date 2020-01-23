@@ -1,5 +1,5 @@
-# **fastfield image getter**
-## ** getting image from fastfield without using their api**
+#Fastfield image getter
+##Getting image from fastfield without using their api
 > requires JDK 8
 1. install maven - https://mkyong.com/maven/how-to-install-maven-in-windows/
 2. git clone
